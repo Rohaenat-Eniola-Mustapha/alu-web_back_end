@@ -5,7 +5,10 @@ Module for a type-annotated function make_multiplier.
 """
 
 
-def make_multiplier(multiplier: float):
+from typing import Callable
+
+
+def make_multiplier(multiplier: float) -> Callable[[float], float]:
     """Returns the function that multiplies a float 
     by multiplier"""
     def multiplier_func(value: float) -> float:

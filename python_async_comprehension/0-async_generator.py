@@ -15,4 +15,3 @@ async def async_generator():
     for i in range(10):
         yield i
         await asyncio.sleep(1)
-        yield random(0,10)

@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
+"""
+Module containing async_generator function
+"""
 
 import asyncio
 import random
 from typing import Generator
 
-"""Module containing async_generator function"""
 
-
-async def async_generator() -> Generator[float, None, None]:
+async def async_generator() -> Generator[float, None, None]: # type: ignore
     """
     Asynchronous coroutine will loop 10 times,
     wait 1 second, then yield a random number between

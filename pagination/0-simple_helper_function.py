@@ -3,6 +3,7 @@
 First File
 """
 
+
 def index_range(page: int, page_size: int) -> tuple:
     """
     Returns a tuple of size two containing a start index

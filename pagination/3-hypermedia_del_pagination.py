@@ -50,8 +50,7 @@ class Server:
         collected = 0
         keys = sorted(indexed_data.keys())
 
-        while collected < page_size and current_index < len(
-            keys):
+        while collected < page_size and current_index < len(keys):
             if current_index in indexed_data:
                 data.append(indexed_data[current_index])
                 collected += 1

@@ -7,6 +7,7 @@ import csv
 import math
 from typing import List, Dict
 
+
 def index_range(page: int, page_size: int) -> tuple:
     """
     Returns a tuple of size two containing a start index

@@ -5,6 +5,10 @@ Module that returns log message
 import re
 from typing import List
 import logging
+import os
+import mysql.connector # type: ignore
+from typing import List, Tuple
+from mysql.connector.connection import MySQLConnection # type: ignore
 
 
 class RedactingFormatter(logging.Formatter):
@@ -61,3 +65,46 @@ def filter_datum(fields: List[str],
     """
     pattern = f"({'|'.join(map(re.escape, fields))})=.*?(?={separator}|$)"
     return re.sub(pattern, lambda m: f"{m.group(1)}={redaction}", message)
+
+
+# Constants
+PII_FIELDS = ("name", "email", "phone", "ssn", "password")
+
+
+def get_logger() -> logging.Logger:
+    """
+    Creates and configures a logger named 'user_data'.
+
+    Returns:
+        logging.Logger: Configured logger instance.
+    """
+    logger = logging.getLogger("user_data")
+    logger.setLevel(logging.INFO)
+    logger.propagate = False
+
+    # Create a StreamHandler with RedactingFormatter
+    handler = logging.StreamHandler()
+    handler.setFormatter(RedactingFormatter(fields=PII_FIELDS))
+    logger.addHandler(handler)
+
+    return logger
+
+
+def get_db() -> MySQLConnection:
+    """
+    Connects to a secure MySQL database using environment variables.
+
+    Returns:
+        mysql.connector.connection.MySQLConnection: Database connection object.
+    """
+    username = os.getenv("PERSONAL_DATA_DB_USERNAME", "root")
+    password = os.getenv("PERSONAL_DATA_DB_PASSWORD", "")
+    host = os.getenv("PERSONAL_DATA_DB_HOST", "localhost")
+    database = os.getenv("PERSONAL_DATA_DB_NAME")
+
+    return mysql.connector.connect(
+        user=username,
+        password=password,
+        host=host,
+        database=database
+    )

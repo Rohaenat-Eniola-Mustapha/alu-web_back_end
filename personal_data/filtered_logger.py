@@ -6,9 +6,9 @@ import re
 from typing import List
 import logging
 import os
-import mysql.connector # type: ignore
+import mysql.connector
 from typing import List, Tuple
-from mysql.connector.connection import MySQLConnection # type: ignore
+from mysql.connector.connection import MySQLConnection
 
 
 class RedactingFormatter(logging.Formatter):

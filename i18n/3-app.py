@@ -3,6 +3,7 @@
 
 from flask import Flask, render_template, request
 from flask_babel import Babel, _
+from flask_babel import Babel, _
 
 
 class Config:
@@ -15,6 +16,7 @@ class Config:
 app = Flask(__name__)
 app.config.from_object(Config)
 
+
 babel = Babel(app)  # Initialize Babel
 
 
@@ -26,13 +28,12 @@ def get_locale():
     """
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
-
 @app.route('/')
 def index():
     """
     Render the 3-index.html template with translations.
     """
-    return render_template('3-index.html')
+    return render_template('3-index.html', home_title=_("home_title"), home_header=_("home_header"))
 
 
 if __name__ == '__main__':

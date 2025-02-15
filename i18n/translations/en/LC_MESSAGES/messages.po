@@ -6,6 +6,9 @@
 msgid "home_title"
 msgstr "Welcome to Holberton"
 
+msgid "home_title"
+msgstr "Welcome to Holberton"
+
 msgid "home_header"
 msgstr "Hello world!"
 "Project-Id-Version: PROJECT VERSION\n"

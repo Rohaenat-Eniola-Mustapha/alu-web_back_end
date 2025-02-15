@@ -4,6 +4,7 @@
 from flask import Config, Flask, render_template, request
 from flask_babel import Babel
 
+
 class Config:
     LANGUAGES = ["en", "fr"]
     BABEL_DEFAULT_LOCALE = "en"
@@ -14,6 +15,7 @@ app = Flask(__name__)
 app.config.from_object(Config)
 
 babel = Babel(app)  # Instantiate the Babel extension
+
 
 @app.route('/')
 def index():

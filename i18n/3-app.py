@@ -28,12 +28,17 @@ def get_locale():
     """
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
+
 @app.route('/')
 def index():
     """
     Render the 3-index.html template with translations.
     """
-    return render_template('3-index.html', home_title=_("home_title"), home_header=_("home_header"))
+    return render_template(
+        '3-index.html',
+        home_title=_("home_title"),
+        home_header=_("home_header")
+        )
 
 
 if __name__ == '__main__':

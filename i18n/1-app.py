@@ -6,6 +6,7 @@ from flask_babel import Babel
 
 
 class Config:
+    """Configuration class for Flask-Babel."""
     LANGUAGES = ["en", "fr"]
     BABEL_DEFAULT_LOCALE = "en"
     BABEL_DEFAULT_TIMEZONE = "UTC"
@@ -21,6 +22,7 @@ babel = Babel(app)  # Instantiate the Babel extension
 def index():
     """Render the 1-index.html template."""
     return render_template('1-index.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)

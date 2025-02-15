@@ -4,6 +4,7 @@
 from flask import Flask, render_template, request
 from flask_babel import Babel, _
 
+
 class Config:
     """Configuration class for Flask-Babel."""
     LANGUAGES = ["en", "fr"]
@@ -16,15 +17,21 @@ app.config.from_object(Config)
 
 babel = Babel(app)  # Initialize Babel
 
+
 @babel.localeselector
 def get_locale():
-    """Determine the best match for supported languages based on the request."""
+    """
+    Determine the best match for
+    supported languages based on the request.
+    """
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 @app.route('/')
 def index():
-    """Render the 3-index.html template with translations."""
+    """
+    Render the 3-index.html template with translations.
+    """
     return render_template('3-index.html')
 
 

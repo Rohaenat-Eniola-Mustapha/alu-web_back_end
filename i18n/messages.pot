@@ -3,7 +3,6 @@
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
@@ -19,9 +18,14 @@ msgstr ""
 
 #: 3-app.py:48 templates/3-index.html:6 templates/4-index.html:6
 msgid "home_title"
-msgstr ""
+msgstr "Welcome to Holberton"
 
 #: 3-app.py:49 templates/3-index.html:9 templates/4-index.html:9
 msgid "home_header"
-msgstr ""
+msgstr "Hello World!"
 
+msgid "logged_in_as"
+msgstr "You are logged in as %(username)s."
+
+msgid "not_logged_in"
+msgstr "You are not logged in."

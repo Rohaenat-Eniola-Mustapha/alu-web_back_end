@@ -1,5 +1,14 @@
 #!/usr/bin/env python3
-"""Flask app with Babel and template translation."""
+"""
+Flask app with Babel integration for multilingual support.
+
+This module initializes a Flask application with Babel to provide
+English and French translations.
+
+Functions:
+    get_locale: Determines the best language for the user.
+"""
+
 
 from flask import Flask, render_template, request
 from flask_babel import Babel, _
